@@ -50,14 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // List<String> namaFilter = [];
   List<String> nama = <String>[
-    'Claritha Canda Putri',
     'Dewi Kusumaningtyas',
     'Evinda Dindayanti Arief',
+    'Nurul Hapsari Adenia',
+    'Claritha Canda Putri',
     'Fitri Dwi Alfina',
     'Nabila Rachmawati Dwi Utomo Dwi Nabila Rachmawati',
     'Nafi Ibdiyana Musyarrifani',
     'Nanda Maya Safitri',
-    'Nurul Hapsari Adenia',
     'Rahadyan Mohammad Akram',
     'Riris Damajanti',
     'Shintia Anggi Dwi Pramietha Sari Dewi',
@@ -81,24 +81,24 @@ class _MyHomePageState extends State<MyHomePage> {
   // }
 
   List<String> email = <String>[
-    'claritha@gmail.com',
-    'tyas@gmail.com',
-    'pindang@gmail.com',
-    'fitri@gmail.com',
-    'ner@gmail.com',
-    'nafi@gmail.com',
-    'mayas@gmail.com',
+    'dewi@gmail.com',
+    'evinda@gmail.com',
     'nurulhapsari1995@gmail.com',
-    'dyan@gmail.com',
+    'claritha@gmail.com',
+    'fitri@gmail.com',
+    'nabila@gmail.com',
+    'nafi@gmail.com',
+    'nanda@gmail.com',
+    'rahadyan@gmail.com',
     'riris@gmail.com',
-    'anggi@gmail.com',
+    'shintia@gmail.com',
     'tania@gmail.com'
   ];
 
   List<String> nomer = <String>[
-    '08565356',
     '08345556',
     '08186356',
+    '08565356',
     '08821656',
     '08453256',
     '08786856',
@@ -165,6 +165,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 12),
                 // onChanged: (value) {},
               ),
+
+              // ),
             ),
             new Container(
                 padding: EdgeInsets.only(top: 5.0),
@@ -246,13 +248,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      // SORTING ASCENDING
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
           setState(() {
-            // nama.sort((a, b) => a.compareTo(b));
-            nama = nama.reversed.toList();
-            email = email.reversed.toList();
-            nomer = nomer.reversed.toList();
+            nama = nama..sort((a, b) => a.toString().compareTo(b.toString()));
+            email = email..sort((a, b) => a.toString().compareTo(b.toString()));
+            nomer = nomer..sort((a, b) => a.toString().compareTo(b.toString()));
+            // nama = nama..sort((b, a) => b.toString().compareTo(a.toString()));
+
+            // nama = nama.reversed.toList();
+            // email = email.reversed.toList();
+            // nomer = nomer.reversed.toList();
             // email.sort((a, b) => a.compareTo(b));
             // nomer.sort((a, b) => a.compareTo(b));
           });
