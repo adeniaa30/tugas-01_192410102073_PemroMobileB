@@ -41,15 +41,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   TextEditingController searchController = new TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    searchController.addListener(() {
-      filterContacts();
-    });
-  }
+  // void initState() {
+  //   super.initState();
+  //   searchController.addListener(() {
+  //     filterContacts();
+  //   });
+  // }
 
-  List<String> namaFilter = [];
+  // List<String> namaFilter = [];
   List<String> nama = <String>[
     'Claritha Canda Putri',
     'Dewi Kusumaningtyas',
@@ -65,21 +64,21 @@ class _MyHomePageState extends State<MyHomePage> {
     'Tania Ardiyanti Pratami',
   ];
 
-  filterContacts() {
-    List<String> _contacts = [];
-    _contacts.addAll(nama);
-    if (searchController.text.isNotEmpty) {
-      _contacts.retainWhere((nama) {
-        String searchTerm = searchController.text.toLowerCase();
-        String contactName = nama.toLowerCase();
-        return contactName.contains(searchTerm);
-      });
+  // filterContacts() {
+  //   List<String> _contacts = [];
+  //   _contacts.addAll(nama);
+  //   if (searchController.text.isNotEmpty) {
+  //     _contacts.retainWhere((nama) {
+  //       String searchTerm = searchController.text.toLowerCase();
+  //       String contactName = nama.toLowerCase();
+  //       return contactName.contains(searchTerm);
+  //     });
 
-      setState(() {
-        namaFilter = _contacts;
-      });
-    }
-  }
+  //     setState(() {
+  //       namaFilter = _contacts;
+  //     });
+  //   }
+  // }
 
   List<String> email = <String>[
     'claritha@gmail.com',
@@ -182,9 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         flex: 1,
                         fit: FlexFit.tight,
                         child: ListView.separated(
-                          itemCount: isSearching == true
-                              ? namaFilter.length
-                              : nama.length,
+                          itemCount: nama.length,
                           itemBuilder: (BuildContext context, index) {
                             // Contact nama = isSearching == true
                             //     ? namaFilter[index]
@@ -252,9 +249,12 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
           setState(() {
+            // nama.sort((a, b) => a.compareTo(b));
             nama = nama.reversed.toList();
             email = email.reversed.toList();
             nomer = nomer.reversed.toList();
+            // email.sort((a, b) => a.compareTo(b));
+            // nomer.sort((a, b) => a.compareTo(b));
           });
         },
         child: new Icon(Icons.sort_by_alpha_rounded),
